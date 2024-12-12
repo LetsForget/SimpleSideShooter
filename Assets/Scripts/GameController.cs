@@ -123,6 +123,7 @@ namespace ZombieShooter
             locationController.Reset();
             bulletController.Reset();
             enemiesController.Reset();
+            lootController.Reset();
             
             stateMachine.ChangeState(GameStateType.Idle);
         }
