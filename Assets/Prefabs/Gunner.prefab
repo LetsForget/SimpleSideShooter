@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74acd1d7d55a41d78d12925c7473e1d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 694455115468441236}
   <Animator>k__BackingField: {fileID: 6315535608467814479}
   <ShootPoint>k__BackingField: {fileID: 2112089232692860780}
-  <SpriteRenderer>k__BackingField: {fileID: 694455115468441236}
   <Speed>k__BackingField: 8
 --- !u!1 &9172107367572395455
 GameObject:

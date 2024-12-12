@@ -7,8 +7,8 @@ namespace ZombieShooter.Location
         public Block Background;
         public Block Floor;
 
-        public Transform CharacterHolder;
-        public int CharacterOrder;
+        public Transform GunnerHolder;
+        public int GunnerOrder;
         
         public Transform MovableHolder;
         

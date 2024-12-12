@@ -10,6 +10,6 @@ namespace ZombieShooter.Guns
         [field: SerializeField] public int BulletDrawOrder { get; private set; }
         [field: SerializeField] public float BulletBorder { get; private set; }
         [field: SerializeField] public BaseBullet BulletOriginal { get; private set; }
-        [field: SerializeField] public float StartBulletCount { get; private set; }
+        [field: SerializeField] public int StartBulletCount { get; private set; }
     }
 }

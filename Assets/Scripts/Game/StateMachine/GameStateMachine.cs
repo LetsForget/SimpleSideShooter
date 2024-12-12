@@ -19,6 +19,7 @@ namespace ZombieShooter.Game.StateMachine
                 { GameStateType.Idle, new IdleState(locationController, cameraController, gunnerController, bulletController) },
                 { GameStateType.Run, new RunState(locationController, cameraController, gunnerController, bulletController) },
                 { GameStateType.Shoot, new ShootState(locationController, cameraController, gunnerController, bulletController) },
+                { GameStateType.Failed, new FailedGameState(locationController, cameraController, gunnerController, bulletController)}
             };
             
             InitializeStates();

@@ -29,6 +29,6 @@ namespace ZombieShooter.Game
             bulletController.UpdateSelf(Time.deltaTime);
         }
         
-        public abstract void UpdateInput(InputContainer input);
+        public virtual void UpdateInput(InputContainer input) { }
     }
 }

@@ -130,11 +130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c827abedc9c4f58abc6e7978bdc1de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <SpriteRenderer>k__BackingField: {fileID: 738494373528164441}
-  <HealthBar>k__BackingField: {fileID: 2912838958643048896}
-  <Collision>k__BackingField: {fileID: 3583378742171713165}
-  <Holder>k__BackingField: {fileID: 4878061941793970291}
-  <StartHealth>k__BackingField: 100
+  sprite: {fileID: 738494373528164441}
+  healthBar: {fileID: 2912838958643048896}
+  collision: {fileID: 3583378742171713165}
+  animator: {fileID: 8535883895444608264}
+  holder: {fileID: 4878061941793970291}
+  startHealth: 50
   <Speed>k__BackingField: 3
 --- !u!65 &3583378742171713165
 BoxCollider:

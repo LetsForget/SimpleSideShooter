@@ -7,13 +7,14 @@ namespace ZombieShooter.Enemies
     public class EnemyContainer : MonoBehaviour, IBulletReceiver, IPoolable
     {
         private static readonly int Health = Shader.PropertyToID("_Health");
+
+        [SerializeField] private SpriteRenderer sprite;
+        [SerializeField] private SpriteRenderer healthBar;
+        [SerializeField] private Collider collision;
+        [SerializeField] private Animator animator;
+        [SerializeField] private GameObject holder;
+        [SerializeField] private float startHealth;
         
-        [field: SerializeField] public SpriteRenderer SpriteRenderer { get; private set; }
-        [field: SerializeField] public SpriteRenderer HealthBar { get; private set; }
-        [field: SerializeField] public Collider Collision { get; private set; }
-        
-        [field: SerializeField] public GameObject Holder { get; private set; }
-        [field: SerializeField] public float StartHealth { get; private set; }
         [field: SerializeField] public float Speed { get; private set; }
         
         
@@ -25,7 +26,7 @@ namespace ZombieShooter.Enemies
             private set
             {
                 _currentHealth = value; 
-                HealthBar.material.SetFloat(Health, _currentHealth / StartHealth);
+                healthBar.material.SetFloat(Health, _currentHealth / startHealth);
             }
         }
         
@@ -39,30 +40,32 @@ namespace ZombieShooter.Enemies
         {
             set
             {
-                SpriteRenderer.sortingOrder = value;
-                HealthBar.sortingOrder = value;
+                sprite.sortingOrder = value;
+                healthBar.sortingOrder = value;
             } 
         }
 
         public void Initialize()
         {
-            HealthBar.material = Instantiate(HealthBar.material);
+            healthBar.material = Instantiate(healthBar.material);
         }
         
         public void ReceiveBullet(float damage) => CurrentHealth -= damage;
         
-        public void ResetHealth() => CurrentHealth = StartHealth;
+        public void ResetHealth() => CurrentHealth = startHealth;
         
+        public void SetAnimationSpeed(float value) => animator.speed = value;
+
         public void OnTakenFromPool()
         {
-            Holder.gameObject.SetActive(true);
-            Collision.enabled = true;
+            holder.gameObject.SetActive(true);
+            collision.enabled = true;
         }
 
         public void OnTakenBackToPool()
         {
-            Holder.gameObject.SetActive(false);
-            Collision.enabled = false;
+            holder.gameObject.SetActive(false);
+            collision.enabled = false;
         }
     }
 }

@@ -15,8 +15,8 @@ namespace ZombieShooter.Location
 
         public GunnerContainer SpawnCharacter(GunnerContainer container)
         {
-            var result = GameObject.Instantiate(container, locationData.CharacterHolder);
-            result.SpriteRenderer.sortingOrder = locationData.CharacterOrder;
+            var result = GameObject.Instantiate(container, locationData.GunnerHolder);
+            result.Order = locationData.GunnerOrder;
             result.transform.ResetLocal();
             
             return result;
@@ -27,6 +27,14 @@ namespace ZombieShooter.Location
             locationData.MovableHolder.position += Vector3.right * delta;
 
             locationData.UpdateBlocks();
+        }
+
+        public void Reset()
+        {
+            var position = locationData.MovableHolder.position;
+            position.x = 0;
+
+            locationData.MovableHolder.position = position;
         }
     }
 }

@@ -41,7 +41,7 @@ namespace ZombieShooter.Enemies
             return enemy;
         }
 
-        public void Take(EnemyContainer container)
+        public void Free(EnemyContainer container)
         {
             pool.FreeObject(container);
         }

@@ -10,6 +10,7 @@ namespace ZombieShooter.Enemies
     public class EnemiesController
     {
         public event Action EnemyReachedPlayer;
+        public event Action<float> EnemyDied; 
         
         private EnemiesConfig config;
         private EnemyFabric enemyFabric;
@@ -33,7 +34,7 @@ namespace ZombieShooter.Enemies
             cts = new CancellationTokenSource();
         }
 
-        public void Start()
+        public void StartSpawn()
         {
             spawnTask = Spawn();
         }
@@ -51,29 +52,14 @@ namespace ZombieShooter.Enemies
             {
                 if (enemy.CurrentHealth < 0)
                 {
-                    enemyFabric.Take(enemy);
+                    enemyFabric.Free(enemy);
                     cachedEnemies.Add(enemy);
+                    
+                    EnemyDied?.Invoke(enemy.Position);
                 }
                 else
                 {
-                    var moveDelta = enemy.Speed * deltaTime;
-
-                    if (enemy.Position > 0)
-                    {
-                        moveDelta = -moveDelta;
-                    }
-                
-                    if (Mathf.Abs(moveDelta) > Mathf.Abs(enemy.Position))
-                    {
-                        EnemyReachedPlayer?.Invoke();
-                    
-                        StopSpawn();
-                        paused = true;
-                    }
-                    else
-                    {
-                        enemy.Position += moveDelta;
-                    }
+                    MoveEnemy(enemy, deltaTime);
                 }
             }
 
@@ -84,10 +70,35 @@ namespace ZombieShooter.Enemies
             
             cachedEnemies.Clear();
         }
+
+        private void MoveEnemy(EnemyContainer enemy, float deltaTime)
+        {
+            var moveDelta = enemy.Speed * deltaTime;
+
+            if (enemy.Position > 0)
+            {
+                moveDelta = -moveDelta;
+            }
+                    
+            if (Mathf.Abs(enemy.Position) < 0.2f)
+            {
+                EnemyReachedPlayer?.Invoke();
+            }
+            else
+            {
+                enemy.Position += moveDelta;
+            }
+        }
         
-        public void StopSpawn()
+        public void Stop()
         {
             cts.Cancel();
+            paused = true;
+
+            foreach (var enemy in enemies)
+            {
+                enemy.SetAnimationSpeed(0);
+            }
         }
         
         private async Task Spawn()
@@ -101,8 +112,27 @@ namespace ZombieShooter.Enemies
                 var spawnPosition = leftSide ? config.LeftSpawnPosition : config.RightSpawnPosition;
                 var enemy = enemyFabric.Get(spawnPosition, leftSide);
                 
+                enemy.SetAnimationSpeed(1);
+                
                 enemies.AddLast(enemy);
             }
+        }
+
+        public void Reset()
+        {
+            foreach (var enemy in enemies)
+            {
+                enemyFabric.Free(enemy);
+            }
+            
+            enemies.Clear();
+            
+            cts.Dispose();
+            cts = new CancellationTokenSource();
+            
+            paused = false;
+            
+            StartSpawn();
         }
     }
 }

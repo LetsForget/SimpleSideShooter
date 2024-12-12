@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Common;
 using Common.Pool;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -9,7 +8,7 @@ namespace ZombieShooter.Guns
 {
     public class BulletController
     {
-        public event Action<int> BulletCountChanged; 
+        public event Action<int> BulletsCountChanged; 
         
         private BulletConfig config;
         
@@ -21,7 +20,17 @@ namespace ZombieShooter.Guns
         private HashSet<BaseBullet> cachedBullets;
         
         private DateTime lastShotTime;
-        private float bulletsCount;
+        
+        private int _bulletsCount;
+        private int BulletsCount
+        {
+            get => _bulletsCount;
+            set
+            {
+                _bulletsCount = value;
+                BulletsCountChanged?.Invoke(value);
+            }
+        }
         
         public BulletController(BulletConfig config, Transform holder, IShootPoint shootPoint)
         {
@@ -44,12 +53,12 @@ namespace ZombieShooter.Guns
             cachedBullets = new HashSet<BaseBullet>(config.PoolSize);
             
             lastShotTime = DateTime.Now;
-            bulletsCount = this.config.StartBulletCount;
+            BulletsCount = this.config.StartBulletCount;
         }
         
         public void Shoot()
         {
-            if (bulletsCount <= 0 || DateTime.Now - lastShotTime < TimeSpan.FromSeconds(config.ShootInterval))
+            if (BulletsCount <= 0 || DateTime.Now - lastShotTime < TimeSpan.FromSeconds(config.ShootInterval))
             {
                 return;
             }
@@ -60,7 +69,7 @@ namespace ZombieShooter.Guns
             
             shootedBullets.AddLast(bullet);
             lastShotTime = DateTime.Now;
-            bulletsCount--;
+            BulletsCount--;
         }
 
         private void OnBulletHitted(BaseBullet bullet)
@@ -92,6 +101,22 @@ namespace ZombieShooter.Guns
             }
             
             cachedBullets.Clear();
+        }
+
+        public void OnLooted(int lootedBullets)
+        {
+            BulletsCount += lootedBullets;
+        }
+        
+        public void Reset()
+        {
+            foreach (var bullet in shootedBullets)
+            {
+                pool.FreeObject(bullet);
+            }
+            
+            shootedBullets.Clear();
+            BulletsCount = config.StartBulletCount;
         }
     }
 }

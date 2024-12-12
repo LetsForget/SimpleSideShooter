@@ -74,8 +74,8 @@ namespace ZombieShooter.Location
                 Background = background,
                 Floor = floor,
                 
-                CharacterHolder = characterHolder.transform,
-                CharacterOrder = characterOrder,
+                GunnerHolder = characterHolder.transform,
+                GunnerOrder = characterOrder,
                 
                 MovableHolder = movableHolder.transform,
                 
