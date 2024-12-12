@@ -35,6 +35,7 @@ namespace ZombieShooter.Location
             position.x = 0;
 
             locationData.MovableHolder.position = position;
+            locationData.UpdateBlocks();
         }
     }
 }
