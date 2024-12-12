@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8918b229d2d47ed9fb0885d03893e79, type: 3}
+  m_Name: LocationConfig
+  m_EditorClassIdentifier: 
+  <MainBackground>k__BackingField: {fileID: 1098921818341399618, guid: b04d9f14c4a47914594d7519953acc4b, type: 3}
+  <Floor>k__BackingField: {fileID: 1098921818341399618, guid: 6a68f6685bde09b4988c3f6777a46f80, type: 3}
+  <BackgroundBlocks>k__BackingField:
+  - {fileID: 1747834958000036740, guid: 7cb456bc648ae7744b3373b054715ce9, type: 3}
+  - {fileID: 1747834958000036740, guid: 7cb456bc648ae7744b3373b054715ce9, type: 3}
+  - {fileID: 1747834958000036740, guid: 7cb456bc648ae7744b3373b054715ce9, type: 3}
+  - {fileID: 1747834958000036740, guid: 7cb456bc648ae7744b3373b054715ce9, type: 3}
+  - {fileID: 1747834958000036740, guid: 7cb456bc648ae7744b3373b054715ce9, type: 3}
+  - {fileID: 1747834958000036740, guid: 7cb456bc648ae7744b3373b054715ce9, type: 3}
+  <MidgroundBlocks>k__BackingField:
+  - {fileID: 1747834958000036740, guid: 2b3feabb1d0655f43973ac6b19cf68eb, type: 3}
+  - {fileID: 1747834958000036740, guid: 2b3feabb1d0655f43973ac6b19cf68eb, type: 3}
+  - {fileID: 7407628395915209556, guid: dc86f1977d325344f94d3e0a02f86c50, type: 3}
+  - {fileID: 7407628395915209556, guid: 50646ea48d0854d4a91bf8c1336273c3, type: 3}
+  - {fileID: 7407628395915209556, guid: 50646ea48d0854d4a91bf8c1336273c3, type: 3}
+  - {fileID: 1747834958000036740, guid: 1e3f25bb35877e64f9b4271db53128df, type: 3}
+  - {fileID: 1747834958000036740, guid: 1e3f25bb35877e64f9b4271db53128df, type: 3}
+  - {fileID: 1747834958000036740, guid: 351f94b71836da944b87135202aa6ac1, type: 3}
+  - {fileID: 1747834958000036740, guid: 351f94b71836da944b87135202aa6ac1, type: 3}
+  <ForegroundBlocks>k__BackingField:
+  - {fileID: 1747834958000036740, guid: 80bf2f6771500764593a293c9a7df02c, type: 3}
+  - {fileID: 1747834958000036740, guid: c09945f2257479d47bf5ca5cc2f3f7dd, type: 3}
+  - {fileID: 1747834958000036740, guid: c09945f2257479d47bf5ca5cc2f3f7dd, type: 3}
+  - {fileID: 1747834958000036740, guid: 80bf2f6771500764593a293c9a7df02c, type: 3}
+  - {fileID: 1747834958000036740, guid: 886731c4459e8384d91fbd15085e3cf9, type: 3}
+  - {fileID: 1747834958000036740, guid: 886731c4459e8384d91fbd15085e3cf9, type: 3}
+  <BlocksBorder>k__BackingField: 60
+  <CharactersGroundLevel>k__BackingField: -3.13
+  <CameraConfig>k__BackingField: {fileID: 11400000, guid: 8b4adeb190e1d6a49a4b171422573fdb, type: 2}

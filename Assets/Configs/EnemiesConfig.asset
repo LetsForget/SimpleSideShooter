@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59b25b8a704c405fb0e2d8d53960b8d7, type: 3}
+  m_Name: EnemiesConfig
+  m_EditorClassIdentifier: 
+  <EnemyOriginals>k__BackingField:
+  - {fileID: 3055102991633180353, guid: 8f3537c191a5c0f4497e5b229278f506, type: 3}
+  - {fileID: 3055102991633180353, guid: 8f3537c191a5c0f4497e5b229278f506, type: 3}
+  - {fileID: 3055102991633180353, guid: 8f3537c191a5c0f4497e5b229278f506, type: 3}
+  - {fileID: 3055102991633180353, guid: 3c349e68b0e066248b130fa3e28123a4, type: 3}
+  - {fileID: 3055102991633180353, guid: 3c349e68b0e066248b130fa3e28123a4, type: 3}
+  - {fileID: 3055102991633180353, guid: 3c349e68b0e066248b130fa3e28123a4, type: 3}
+  - {fileID: 3055102991633180353, guid: 3c349e68b0e066248b130fa3e28123a4, type: 3}
+  - {fileID: 3055102991633180353, guid: 3c349e68b0e066248b130fa3e28123a4, type: 3}
+  - {fileID: 3055102991633180353, guid: e33e4094f904b8746ae57c44f13f2c6b, type: 3}
+  - {fileID: 3055102991633180353, guid: e33e4094f904b8746ae57c44f13f2c6b, type: 3}
+  - {fileID: 3055102991633180353, guid: ed463b8f9619a5445b7f9a822b191a47, type: 3}
+  - {fileID: 3055102991633180353, guid: ed463b8f9619a5445b7f9a822b191a47, type: 3}
+  - {fileID: 3055102991633180353, guid: ed463b8f9619a5445b7f9a822b191a47, type: 3}
+  - {fileID: 882509411936825271, guid: 81d3eca5f489ef64aa58c5a03240c0ba, type: 3}
+  - {fileID: 882509411936825271, guid: 81d3eca5f489ef64aa58c5a03240c0ba, type: 3}
+  <LeftSpawnPosition>k__BackingField: -30
+  <RightSpawnPosition>k__BackingField: 30
+  <SpawnMinTime>k__BackingField: 1
+  <SpawnMaxTime>k__BackingField: 10
